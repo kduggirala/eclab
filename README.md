@@ -1,0 +1,6 @@
+# Charles River Economics Labs @UChicago -- Fall 2023, Census Bureau
+This is our GitHub repository for the Fall 2023 UChicago project. We are working with the US Census Bureau Associate Director of Economic Programs (ADEP) on this semester-long project.
+
+Key Question: How does the legalization and growth of the cannabis industry at national and subnational levels affect economic indicators, business dynamics, and worker demographics? To this end, how can we generate a novel dataset to encompass the cannabis industry?
+
+The cannabis industry has seen rapid growth in recent years, with an array of recreational and medicinal markets, varying state legalizations, and diverse business models emerging. While there exists significant public, administrative, and third-party data about businesses in this supply chain, a systematic and comprehensive approach to understanding the economic impact of the cannabis industry is lacking. This project aims to fill this gap in the data and enhance our understanding of industry business patterns using descriptive econometric analysis. Ultimately, we hope to reveal novel insights on how cannabis businesses influence the broader economic landscape, worker demographics, and business dynamics in regions where they operate.
