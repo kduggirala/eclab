@@ -50,8 +50,30 @@ driver.maximize_window()
  
 def extract_data1(driver): #this should get the review count, name, average review rating, whatever else is immediately relevant on the store's opening page
     soup = BeautifulSoup(driver.page_source, 'lxml')
-    #do some beautiful soup stuff here
-    pass
+    
+    Store_Name = soup.find("h1", class_ = "Text-sc-51fcf911-0 jNpCem").get_text() # would be surprised if there were errors here, but maybe add error checking later?
+    
+    Review_Counter = soup.find("button", class_ = "Text-sc-51fcf911-0 ReviewLineText-sc-6cf8fc1f-2 hYlRYn bUIoMe")
+
+    # If reviews exist, assign review count to Num_Reviews. Otherwise set Num_Reviews = 0
+    if Review_Counter: 
+        Num_Reviews = Review_Counter.contents[1]
+    else:
+        Num_Reviews = 0
+    
+    Rating_Value = soup.find("div", class_ = "Text-sc-51fcf911-0 RatingValue-sc-6cf8fc1f-1 hYlRYn zmNGQ")
+
+    # If rating exists, assign rating to Avg_Rating. Otherwise set Avg_Rating = None
+    if Rating_Value:
+        Avg_Rating = Rating_Value.contents[0]
+    else:
+        Avg_Rating = None
+
+    final_dict = {"Name": Store_Name,
+                  "Num_Reviews": Num_Reviews,
+                  "Avg_Rating": Avg_Rating}
+    
+    return final_dict
 
 def extract_data2(driver): #this should scrape the product info on this page
     soup = BeautifulSoup(driver.page_source, 'lxml')
