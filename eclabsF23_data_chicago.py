@@ -53,10 +53,10 @@ def extract_data1(driver): #this should get the review count, name, average revi
     #do some beautiful soup stuff here
     pass
 
-def extract_data2(driver): #this should scrape the product info on this page
-    soup = BeautifulSoup(driver.page_source, 'lxml')
-    #more beautiful soup, but this should be the most complicated one since this will involve checking for what kind of info is even available to begin with
-    pass
+# def extract_data2(driver): #this should scrape the product info on this page
+#     soup = BeautifulSoup(driver.page_source, 'lxml')
+#     #more beautiful soup, but this should be the most complicated one since this will involve checking for what kind of info is even available to begin with
+#     pass
 
 def extract_data3(driver): #this should scrape the store details, including address, phone number, license info, etc.
     soup = BeautifulSoup(driver.page_source, 'lxml')
@@ -79,16 +79,16 @@ while True:
     for link in stores_links:
         driver.get(link)
         extract_data1(driver)
-        j = 1
-        while True:
-            driver.get(f"https://weedmaps.com/dispensaries/sunnyside-dispensary-river-north?page={j}")
-            try:
-                products_list = driver.find_element(By.XPATH, "//ol")
-                extract_data2(driver)
-            except NoSuchElementException:
-                break
+        # j = 1
+        # while True:
+        #     driver.get(f"https://weedmaps.com/dispensaries/sunnyside-dispensary-river-north?page={j}")
+        #     try:
+        #         products_list = driver.find_element(By.XPATH, "//ol")
+        #         extract_data2(driver)
+        #     except NoSuchElementException:
+        #         break
             
-            j += 1
+        #     j += 1
 
 
         driver.find_element(By.XPATH, '//*[@id="content"]/div[2]/div[3]/div/div[2]/button').click() #click store details button
