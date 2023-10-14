@@ -1,25 +1,4 @@
-# DATA COLLECTION FROM WEEDMAPS (CHICAGO)
-
-"""
-VARIABLES WE NEED FOR EACH BUSINESS:
-Name
-Review Count
-Average Reviews
-License Information (may have multiple licenses for medical and recreational use)
-Address
-Phone?
-Medical and recreational indicator variables
-"""
-
-"""
-INFORMATION WE NEED FOR EACH PRODUCT SOLD BY EACH BUSINESS
-Name (name may also contain quantity in grams or count)
-Price (ideally per gram)
-THC content
-"""
-
 # IMPORTS
-import regex as re #regex might turn out to be useful so i'll keep it around
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -27,10 +6,15 @@ from selenium.common.exceptions import NoSuchElementException
 import time
 import csv
 
-def extract_data1(driver): #this should get the review count, name, average review rating, whatever else is immediately relevant on the store's opening page
+def extract_data1(driver):
     soup = BeautifulSoup(driver.page_source, 'lxml')
-    Store_Name = soup.find("h1").get_text() # would be surprised if there were errors here, but maybe add error checking later?
-    
+    try:
+        Store_Name = soup.find("h1").get_text() 
+    except AttributeError: #getting an error here means the page didn't load correctly, so we just refresh, wait, and retry
+        driver.refresh()
+        time.sleep(5)
+        soup = BeautifulSoup(driver.page_source, 'lxml')
+        Store_Name = soup.find("h1").get_text()
     rating_wrapper = soup.find("div", class_ = "RatingWrapper-sc-6cf8fc1f-0 kxYFiI")
     Review_Counter = rating_wrapper.find("button")
 
@@ -55,10 +39,6 @@ def extract_data1(driver): #this should get the review count, name, average revi
         phone_number = ""
 
     final = [Store_Name, Num_Reviews, Avg_Rating, descriptors, phone_number]
-
-
-    final = [Store_Name, Num_Reviews, Avg_Rating, descriptors, phone]
-    
     return final
 
 def extract_data3(driver): #this should scrape the store details, including address, phone number, license info, etc.
@@ -72,7 +52,7 @@ c.add_argument("--incognito")
 driver = webdriver.Chrome(options = c)
 driver.maximize_window()
 
-fields = ["Name", "Number Reviews", "Avg Rating", "Descriptors", "Phone Number", "Licenses", "Address" "Url"]
+fields = ["Name", "Number Reviews", "Avg Rating", "Descriptors", "Phone Number", "Licenses", "Address", "Url"]
 file = open(f'./chicago_stores_data.csv', 'w', newline = '')
 file_writer = csv.writer(file, delimiter = ',', quoting = csv.QUOTE_MINIMAL)
 file_writer.writerow(fields)
