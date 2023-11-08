@@ -3,7 +3,7 @@ import scrapy
 class WeedSpider(scrapy.Spider):
     name = "weed"
     custom_settings = { 
-        'FEEDS': {f"products_data" + '.json': {'format': 'json', 'overwrite': False}} 
+        'FEEDS': {f"products_data" + '.jsonl': {'format': 'jsonlines', 'overwrite': False}} 
     }
 
     def __init__(self, *args, **kwargs):
