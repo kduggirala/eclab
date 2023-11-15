@@ -1,0 +1,25 @@
+state,legalization_date,licensed_sales_since_date,tax_rate
+Washington,12/6/2012,7/8/2014,37%
+Colorado,12/10/2012,1/1/2014,15%
+Alaska,2/24/2015,10/29/2016,$50/ounce
+DC,2/26/2015,NaN,NaN
+Oregon,7/1/2015,10/1/2015,17%
+California,11/9/2016,1/1/2018,15%
+Massachusetts,12/15/2016,11/20/2018,10.75%
+Nevada,1/1/2017,7/1/2017,15%(wholesale)|10%(retail)
+Maine,1/30/2017,10/9/2020,10%
+Vermont,7/1/2018,10/1/2022,14%
+Michigan,12/6/2018,12/1/2019,10%
+Illinois,11/30/2020,1/22/2021,7%(seller)|10%(retailer<35%THC)|25%(retailer>35%THC)|20%(retailer-edibles)
+Montana,1/1/2021,1/1/2022,20%
+New Jersey,2/22/2021,4/21/2022,$60/oz(price<200)|$40/oz(200<price<250)|$30/oz(250<price<350)|$10(price>350)
+New York,3/31/2021,12/29/2022,13%
+New Mexico,6/29/2021,4/1/2022,12%
+Connecticut,7/1/2021,1/10/2023,$0.00625/mg(plant)|$0.0275/mg(edibles)|$0.09/mg(non-edible)
+Virginia,7/1/2021,NaN,21%
+Rhode Island,5/25/2022,12/1/2022,10%
+Missouri,12/8/2022,2/3/2023,6%
+Delaware,4/23/2023,NaN,0%
+Maryland,7/1/2023,7/1/2023,NaN
+Minnesota,8/1/2023,NaN,0%
+Ohio,12/7/2023,NaN,NaN
