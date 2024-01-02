@@ -66,7 +66,7 @@ chicago_data = pd.read_csv("./chicago_stores_data.csv")
 seen_dispensaries=  set(chicago_data["Url"])
 base_url = "https://weedmaps.com"
 
-# Loop through states in state_city_dict
+# Loop through urls of cities
 for url in page_urls:
     i = 1
     driver.get(base_url + url)
